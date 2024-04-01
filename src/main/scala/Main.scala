@@ -8,7 +8,8 @@ import EtlError.*
 import pureconfig.*
 import pureconfig.generic.derivation.default.*
 
-@main def run: Unit =
+# @main def run: Unit =
+def run: Unit =
   for config <- ConfigSource.default.load[EtlConfig]
   yield config.etlImpl match
     case EtlImpl.StringImpl => printResult(config, Etl.StringImpl)
